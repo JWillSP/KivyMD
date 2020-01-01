@@ -365,7 +365,11 @@ class MDDropdownMenu(ThemableBehavior, BoxLayout):
         else:
             menu.width = target_width
             menu.height = target_height
-            menu.pos = (c[0] - target_width / 2, c[1] - target_height / 2)
+            if c[1] - target_height / 2 > 0:
+                menu.pos = (c[0] - target_width / 2, c[1] - target_height / 2)
+            else: 
+                menu.pos = (c[0] - target_width / 2, 0) #zero instead of c[1] - target_height
+
 
             # TODO: Add the ability to set the list to the current user selection.
             """
